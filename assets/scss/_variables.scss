@@ -1,8 +1,11 @@
-$primary-color: rgb(88, 102, 36);
+$primary-color: rgb(176, 211, 52);
 $secondary-color: rgb(120,120,240);
+$tertiaty-color: rgb(88, 9, 58);
 $text-color: rgb(200,40,40);
 $font-weights: (
+    "small": 200,
     "regular": 400,
-    "medium": 500,
+    "medium": 600,
     "bold": 900,
 );
+$mobile: 800px;

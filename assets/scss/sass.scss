@@ -1,8 +1,33 @@
+//linking other scss style sheets
 @import './resets';
 @import './variables';
 
+//functions are used to compute & return values
 @function weight($weight-name) {
-    @return map-get($font-weight, $weight-name)
+    @return map-get($font-weights, $weight-name);
+}
+
+//mixins define styles
+@mixin flexCenter($direction) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $direction;
+}
+
+//boolean value to generate light class
+@mixin theme($light-theme: true) {
+    @if $light-theme {
+        background: lighten($primary-color, 100%);
+        color: darken($text-color, 100%);
+    }
+}
+
+//media query if under screen size under 800px, switch to column
+@mixin mobile {
+    @media (max-width: $mobile) {
+        @content;
+    }
 }
 
 body {
@@ -11,14 +36,36 @@ body {
 }
 
 .main {
+    @include flexCenter(row);
     width: 80%;
     margin: 0 auto;
     
-    #{&}_paragraph{
-        font-weight: weight(regular);
+    //& represents parent when creating classes, populates as .main_paragraph1
+    #{&}_paragraph1 {
+        font-weight: weight(small);
         
         &:hover {
             color: $secondary-color;
         }
     }
+    #{&}_paragraph2 {
+        //adds .main_paragraph1 css to .main_paragraph2
+        @extend .main_paragraph1;
+        &:hover {
+            color: $tertiaty-color;
+        }
+    }
+   
+    @include mobile {
+flex-direction: column;
+    }
+}
+
+//if changed to true, will generate light class in css
+//light {
+  //background: white;
+  //color: black;
+//}
+.light {
+    @include theme($light-theme: false);
 }
