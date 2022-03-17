@@ -1,3 +1,5 @@
+//to download sass in extentions look up live sass compilier
+//have to click button on bottom of screem for vc code to watch out for sass to convert it to a css file
 //linking other scss style sheets
 @import './resets';
 @import './variables';
@@ -37,7 +39,8 @@ body {
 
 .main {
     @include flexCenter(row);
-    width: 80%;
+    //if you type it in as is will compute & show to 60% in css, if you use the actual css way(calc(80%-20%) it will show the whole equation
+    width: 80%-20%;
     margin: 0 auto;
     
     //& represents parent when creating classes, populates as .main_paragraph1
@@ -51,6 +54,7 @@ body {
     #{&}_paragraph2 {
         //adds .main_paragraph1 css to .main_paragraph2
         @extend .main_paragraph1;
+        //repaces previous hover class
         &:hover {
             color: $tertiaty-color;
         }
