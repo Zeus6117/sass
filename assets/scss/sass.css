@@ -1,0 +1,25 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #586624;
+  color: #c82828;
+}
+
+.main {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.main .main_paragraph {
+  font-weight: wight;
+}
+
+.main .main_paragraph:hover {
+  color: #7878f0;
+}
+/*# sourceMappingURL=sass.css.map */
